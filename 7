@@ -1,0 +1,21 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        double valorHora;
+        double horasTraba;
+        double sueldoB;
+
+        Console.Write("Ingrese el valor por hora: ");
+        valorHora = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Ingrese la cantidad de horas trabajadas: ");
+        horasTraba = Convert.ToDouble(Console.ReadLine());
+
+        sueldoB = valorHora * horasTraba;
+
+        Console.WriteLine("Sueldo bruto: " + sueldoB);
+    }
+}
