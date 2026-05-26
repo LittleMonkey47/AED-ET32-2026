@@ -1,0 +1,20 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        double lado;
+        double peri;
+        double super;
+
+        Console.Write("Ingrese el lado del cuadrado: ");
+        lado = Convert.ToDouble(Console.ReadLine());
+
+        peri = lado * 4;
+        super = lado * lado;
+
+        Console.WriteLine("Perimetro: " + peri);
+        Console.WriteLine("Superficie: " + super);
+    }
+}
