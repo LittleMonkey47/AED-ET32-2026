@@ -1,0 +1,26 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] arreglo = { 10, 20, 30, 40, 50, 0 };
+        int indiceInsercion = 2;
+
+        Console.Write("Introduce el nuevo número a insertar: ");
+        int nuevoNumero = int.Parse(Console.ReadLine());
+
+        for (int i = arreglo.Length - 1; i > indiceInsercion; i--)
+        {
+            arreglo[i] = arreglo[i - 1];
+        }
+
+        arreglo[indiceInsercion] = nuevoNumero;
+
+        Console.WriteLine("\nArreglo resultante:");
+        foreach (int num in arreglo)
+        {
+            Console.Write(num + " ");
+        }
+    }
+}
