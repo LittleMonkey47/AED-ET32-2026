@@ -1,0 +1,96 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] vector = new int[5];
+        bool cargado = false;
+        int opcion = 0;
+
+        do
+        {
+            Console.WriteLine("\n--- MENÚ DE OPERACIONES ---");
+            Console.WriteLine("1. Cargar el vector");
+            Console.WriteLine("2. Mostrar el vector");
+            Console.WriteLine("3. Buscar un número");
+            Console.WriteLine("4. Sumar todos los elementos");
+            Console.WriteLine("5. Salir");
+            Console.Write("Selecciona una opción: ");
+            
+            if (int.TryParse(Console.ReadLine(), out opcion))
+            {
+                switch (opcion)
+                {
+                    case 1:
+                        for (int i = 0; i < vector.Length; i++)
+                        {
+                            Console.Write($"Ingresa el elemento {i + 1}: ");
+                            vector[i] = int.Parse(Console.ReadLine());
+                        }
+                        cargado = true;
+                        Console.WriteLine("Vector cargado con éxito.");
+                        break;
+
+                    case 2:
+                        if (!cargado) { Console.WriteLine("El vector está vacío. Cárgalo primero."); break; }
+                        
+                        Console.Write("Elementos del vector: ");
+                        foreach (int num in vector)
+                        {
+                            Console.Write(num + " ");
+                        }
+                        Console.WriteLine();
+                        break;
+
+                    case 3:
+                        if (!cargado) { Console.WriteLine("El vector está vacío. Cárgalo primero."); break; }
+                        
+                        Console.Write("Ingresa el número a buscar: ");
+                        int numeroBuscar = int.Parse(Console.ReadLine());
+                        int posicion = -1;
+
+                        for (int i = 0; i < vector.Length; i++)
+                        {
+                            if (vector[i] == numeroBuscar)
+                            {
+                                posicion = i;
+                                break;
+                            }
+                        }
+
+                        if (posicion != -1)
+                            Console.WriteLine($"Número encontrado en el índice {posicion}.");
+                        else
+                            Console.WriteLine("Número no encontrado.");
+                        break;
+
+                    case 4:
+                        if (!cargado) { Console.WriteLine("El vector está vacío. Cárgalo primero."); break; }
+                        
+                        int sumaTotal = 0;
+                        foreach (int num in vector)
+                        {
+                            sumaTotal += num;
+                        }
+                        Console.WriteLine($"La suma de todos los elementos es: {sumaTotal}");
+                        break;
+
+                    case 5:
+                        Console.WriteLine("Saliendo del programa...");
+                        break;
+
+                    default:
+                        Console.WriteLine("Opción no válida. Inténtalo de nuevo.");
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Por favor, introduce un número válido.");
+                opcion = 0; 
+            }
+
+        } while (opcion != 5);
+    }
+}
