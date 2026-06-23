@@ -1,0 +1,32 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string[] colores = { "Rojo", "Verde", "Azul", "Amarillo", "Negro" };
+
+        Console.Write("Introduce un índice del 0 al 4 para eliminar: ");
+        int indiceEliminar = int.Parse(Console.ReadLine());
+
+        if (indiceEliminar >= 0 && indiceEliminar < colores.Length)
+        {
+            for (int i = indiceEliminar; i < colores.Length - 1; i++)
+            {
+                colores[i] = colores[i + 1];
+            }
+
+            colores[colores.Length - 1] = "";
+
+            Console.WriteLine("\nArreglo actualizado:");
+            foreach (string color in colores)
+            {
+                Console.WriteLine($"[{color}]");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Índice fuera de rango.");
+        }
+    }
+}
